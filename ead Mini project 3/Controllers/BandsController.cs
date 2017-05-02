@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ead_Mini_project_3.Models;
+using ead_Mini_project_3.ViewModels;
+
 
 namespace ead_Mini_project_3.Controllers
 {
@@ -49,7 +51,17 @@ namespace ead_Mini_project_3.Controllers
         }
 
 
-
+        public ActionResult About()
+        {
+            IQueryable<GenreGroup> data = from Band in db.bands
+                                                   group Band by Band.Genres into dateGroup
+                                                   select new GenreGroup()
+                                                   {
+                                                       Genres = dateGroup.Key,
+                                                       BandCount = dateGroup.Count()
+                                                   };
+            return View(data.ToList());
+        }
 
 
 

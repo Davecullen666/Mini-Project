@@ -11,7 +11,18 @@ namespace ead_Mini_project_3.Models
     //enum 
     public enum Genre
     {
-        Rock, Pop, Punk, Rap, Metal, Dance
+        [Display(Name = "Rock")]
+        Rock,
+        [Display(Name = "Pop")]
+        Pop,
+        [Display(Name = "Punk")]
+        Punk,
+        [Display(Name = "Rap")]
+        Rap,
+        [Display(Name = "Metal")]
+        Metal,
+        [Display(Name = "Dance")]
+        Dance
     }
 
     public class Band
