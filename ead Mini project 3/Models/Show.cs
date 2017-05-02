@@ -33,6 +33,7 @@ namespace ead_Mini_project_3.Models
     public string SupportBand { get; set; }
 
     [Required]
+    [Range(1,999)]
     [Display(Name = "Tickets Available ")]
     public int TicketsAvailable { get; set; }
 
