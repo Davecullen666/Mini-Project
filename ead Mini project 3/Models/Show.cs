@@ -33,12 +33,22 @@ namespace ead_Mini_project_3.Models
     public string SupportBand { get; set; }
 
     [Required]
-    [Range(1,999)]
+    [Range(0,999)]
     [Display(Name = "Tickets Available ")]
     public int TicketsAvailable { get; set; }
 
     [Display(Name = "Sold Out ")]
-    public bool SoldOut { get; set; }
+    public bool SoldOut
+        {
+            get
+            {
+                if (TicketsAvailable == 0)
+                { return true; }
+                else
+                { return false; }
+            }
+            
+        }
 
 
     }
