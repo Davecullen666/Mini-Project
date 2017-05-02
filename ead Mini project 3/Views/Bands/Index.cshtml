@@ -9,31 +9,46 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+    <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.BandName)
+            @Html.ActionLink("Band Name ", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+
+        <th>
+            Albums
+        </th>
+        
+        <th>
+            @Html.ActionLink(" Genre ", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Albums)
+            Members
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.Genres)
+            Website
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.Members)
+            Youtube
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.BandWebsite)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Youtube)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contact)
+            Contact
         </th>
         <th></th>
     </tr>
+
+
 
 @foreach (var item in Model) {
     <tr>

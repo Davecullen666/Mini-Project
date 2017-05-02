@@ -15,9 +15,34 @@ namespace ead_Mini_project_3.Controllers
         private MyDBContext db = new MyDBContext();
 
         // GET: Shows
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string searchString)
         {
-            return View(db.shows.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            var show = from s in db.shows
+                       select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                show = show.Where(s => s.MainBand.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    show = show.OrderBy(s => s.ShowName);
+                    break;
+                case "Date":
+                    show = show.OrderBy(s => s.Time);
+                    break;
+                case "date_desc":
+                    show = show.OrderByDescending(s => s.Venue);
+                    break;
+                default:
+                    show = show.OrderBy(s => s.Time);
+                    break;
+            }
+
+            return View(show.ToList());
         }
 
         // GET: Shows/Details/5

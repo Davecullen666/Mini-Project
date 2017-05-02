@@ -9,67 +9,81 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+<table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ShowName)
+            @Html.ActionLink("Show Name ", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+
+        <th>
+            Venue
+        </th>
+
+        <th>
+            @Html.ActionLink(" Time ", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Venue)
+            Price
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.Time)
+            Main Band
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            Support Band
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.MainBand)
+            Tickets Left
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.SupportBand)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketsAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoldOut)
+            Sold out?
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Venue)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainBand)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SupportBand)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketsAvailable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoldOut)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainBand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupportBand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketsAvailable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoldOut)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
