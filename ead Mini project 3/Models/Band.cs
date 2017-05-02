@@ -26,7 +26,7 @@ namespace ead_Mini_project_3.Models
 
         public string Albums { get; set; }
 
-
+        
         public Genre Genres { get; set; }
 
         public string Members { get; set; }
