@@ -25,11 +25,11 @@ namespace ead_Mini_project_3.Models
     public double Price { get; set; }
 
     [Required]
-    [Display(Name = "Main band ")]
+    [Display(Name = "Main Act ")]
     public String MainBand { get; set; }
 
     [Required]
-    [Display(Name = "Support band ")]
+    [Display(Name = "Support Act ")]
     public string SupportBand { get; set; }
 
     [Required]
