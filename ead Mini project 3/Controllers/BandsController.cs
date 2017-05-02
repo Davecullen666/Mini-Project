@@ -14,11 +14,44 @@ namespace ead_Mini_project_3.Controllers
     {
         private MyDBContext db = new MyDBContext();
 
-        // GET: Bands
-        public ActionResult Index()
+
+
+
+        // GET: Bands     
+       public ViewResult Index(string sortOrder, string searchString)
         {
-            return View(db.bands.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            var band = from s in db.bands
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                band = band.Where(s => s.BandName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    band = band.OrderBy(s => s.Genres);
+                    break;
+                case "Date":
+                    band = band.OrderBy(s => s.Albums);
+                    break;
+                case "date_desc":
+                    band = band.OrderByDescending(s => s.Genres);
+                    break;
+                default:
+                    band = band.OrderBy(s => s.BandName);
+                    break;
+            }
+
+            return View(band.ToList());
         }
+
+
+
+
+
 
         // GET: Bands/Details/5
         public ActionResult Details(int? id)
