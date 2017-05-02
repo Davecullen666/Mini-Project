@@ -77,7 +77,7 @@ namespace ead_Mini_project_3.Controllers
             {
                 db.shows.Add(show);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
 
             return View(show);
