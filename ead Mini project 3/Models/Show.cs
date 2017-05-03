@@ -10,12 +10,12 @@ namespace ead_Mini_project_3.Models
 
     public class Show
     {
-    public int Id { get; set; }
-    [Required]
-    [Display(Name = "Show Name")]
-    public string ShowName { get; set; }
+        public int Id { get; set; }
+        [Required]
+        [Display(Name = "Show Name")]
+        public string ShowName { get; set; }
 
-    [Required]
+        [Required]
     public string Venue { get; set; }
 
 
@@ -37,7 +37,7 @@ namespace ead_Mini_project_3.Models
     public int TicketsAvailable { get; set; }
 
     [Display(Name = "Sold Out ")]
-    public bool SoldOut
+        public bool SoldOut
         {
             get
             {
@@ -46,7 +46,7 @@ namespace ead_Mini_project_3.Models
                 else
                 { return false; }
             }
-            
+
         }
 
 
