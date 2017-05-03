@@ -28,7 +28,6 @@ namespace ead_Mini_project_3.Models
     [Display(Name = "Main Act ")]
     public String MainBand { get; set; }
 
-    [Required]
     [Display(Name = "Support Act ")]
     public string SupportBand { get; set; }
 

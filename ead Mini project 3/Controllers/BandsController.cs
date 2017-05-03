@@ -51,6 +51,30 @@ namespace ead_Mini_project_3.Controllers
         }
 
 
+
+        //search show details by band name
+        public ActionResult SearchBand(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            var band = from s in db.shows
+                       select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                band = band.Where(s => s.MainBand.Contains(searchString));
+            }
+
+            return View(band.ToList());
+        }
+
+
+
+
+
+
+
+
         public ActionResult About()
         {
             IQueryable<GenreGroup> data = from Band in db.bands

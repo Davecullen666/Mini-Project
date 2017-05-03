@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ead_Mini_project_3.Models;
+using ead_Mini_project_3.ViewModels;
 
 namespace ead_Mini_project_3.Controllers
 {
@@ -44,6 +45,42 @@ namespace ead_Mini_project_3.Controllers
 
             return View(show.ToList());
         }
+
+
+
+        //search show details by Venue name
+        public ActionResult SearchVenue(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            var show = from s in db.shows
+                       select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                show = show.Where(s => s.Venue.Contains(searchString));
+            }
+
+            return View(show.ToList());
+        }
+
+
+
+        //about section to tell number of shows on dates
+        public ActionResult About()
+        {
+            IQueryable<GigsPerDay> data = from Show in db.shows
+                                          group Show by Show.Time into dateGroup
+                                          select new GigsPerDay()
+                                          {
+                                              Time = dateGroup.Key,
+                                              GigCount = dateGroup.Count()
+                                          };
+            return View(data.ToList());
+        }
+
+
+
 
         // GET: Shows/Details/5
         public ActionResult Details(int? id)

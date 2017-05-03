@@ -1,0 +1,35 @@
+﻿
+@model IEnumerable<ead_Mini_project_3.ViewModels.GigsPerDay>
+
+
+@{
+    ViewBag.Title = "Number of Shows per day";
+}
+
+<h2>Number of Shows per day</h2>
+
+<table>
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            Number of Shows
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @item.GigCount
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

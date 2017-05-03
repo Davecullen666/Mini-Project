@@ -8,7 +8,7 @@ namespace ead_Mini_project_3.Models
 {
     public class MyDBContext : DbContext
     {
-        public MyDBContext() : base("SomeNewDB2")
+        public MyDBContext() : base("SomeNewDB3")
         {
 
         }
