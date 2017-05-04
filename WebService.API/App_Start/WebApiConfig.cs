@@ -7,6 +7,7 @@ namespace WebService.API
 {
     public static class WebApiConfig
     {
+       
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
@@ -15,7 +16,7 @@ namespace WebService.API
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
+                name: "api",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );

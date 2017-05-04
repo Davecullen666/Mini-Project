@@ -16,25 +16,25 @@ namespace WebService.API.Controllers
     public class BandsController : ApiController
     {
         private MyDBContext db = new MyDBContext();
-
+        [Route("api/Bands")]
         // GET: api/Bands
-        public IHttpActionResult Getbands()
+        public IHttpActionResult GetBands()
         {
             return Ok(db.bands.OrderBy(s=>s.Genres).ToList());
         }
 
         // GET: api/Bands/name
-        [ResponseType(typeof(Band))]
-        public async Task<IHttpActionResult> GetBand(string name)
-        {
-            Band band = await db.bands.FindAsync(name);
-            if (band == null)
-            {
-                return Ok(db.bands.OrderBy(s => s.Genres).ToList());
-            }
+        //[ResponseType(typeof(Band))]
+        //public async Task<IHttpActionResult> GetBand(string name)
+        //{
+        //    Band band = await db.bands.FindAsync(name);
+        //    if (band == null)
+        //    {
+        //        return Ok(db.bands.OrderBy(s => s.Genres).ToList());
+        //    }
 
-            return Ok(band);
-        }
+        //    return Ok(band);
+        //}
 
         
     }
