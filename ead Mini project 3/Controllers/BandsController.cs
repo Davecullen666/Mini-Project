@@ -19,7 +19,7 @@ namespace ead_Mini_project_3.Controllers
 
 
 
-        // GET: Bands     
+        // GET: Bands     Find band by band name
        public ViewResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -74,7 +74,7 @@ namespace ead_Mini_project_3.Controllers
 
 
 
-
+        //Retuen a count of number of bands per genre
         public ActionResult About()
         {
             IQueryable<GenreGroup> data = from Band in db.bands

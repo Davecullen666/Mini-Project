@@ -15,7 +15,7 @@ namespace ead_Mini_project_3.Controllers
     {
         private MyDBContext db = new MyDBContext();
 
-        // GET: Shows
+        // GET: Shows  Search by show name
         public ViewResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -25,7 +25,7 @@ namespace ead_Mini_project_3.Controllers
                        select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                show = show.Where(s => s.MainBand.Contains(searchString));
+                show = show.Where(s => s.ShowName.Contains(searchString));
             }
             switch (sortOrder)
             {

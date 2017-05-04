@@ -7,12 +7,12 @@
 <h2>Find a Show</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add a show", "Create")
 </p>
 @using (Html.BeginForm())
 {
     <p>
-        Find by name: @Html.TextBox("SearchString")
+        Find by Show name: @Html.TextBox("SearchString")
         <input type="submit" value="Search" />
     </p>
 }

@@ -20,9 +20,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Find", "Index", "Shows")</li>
-                    <li>@Html.ActionLink("Acts", "Index", "Bands")</li>
+                    
+                    <li>@Html.ActionLink("Acts", "Index", "Bands")</li>  
+                    <li>@Html.ActionLink("Search by show name", "Index", "Shows")</li> 
                     <li>@Html.ActionLink("Shows", "About", "Shows")</li>
+                    <li>@Html.ActionLink("Bands", "About", "Bands")</li>
+                    <li>@Html.ActionLink("Find Show by Band", "SearchBand", "Bands")</li>
+                    <li>@Html.ActionLink("Search by venue", "SearchVenue", "Shows")</li>
                 </ul>
             </div>
         </div>
