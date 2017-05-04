@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ead Mini project 3", "ead M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.API", "WebService\Web.API.csproj", "{0275DC58-54F0-4429-8221-934E20A2842E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService.Tests", "WebService.Tests\WebService.Tests.csproj", "{7D0A854F-CE87-4534-A2B4-C28FC18DC024}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.API.Tests", "WebService.Tests\Web.API.Tests.csproj", "{7D0A854F-CE87-4534-A2B4-C28FC18DC024}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.DAL", "Shared.DAL\Shared.DAL.csproj", "{53DBCA6D-09D0-418C-AC2A-775C73B61636}"
 EndProject
