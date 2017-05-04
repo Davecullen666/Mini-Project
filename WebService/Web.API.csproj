@@ -207,7 +207,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Shared.DAL\Shared.DAL.csproj">
+      <Project>{53dbca6d-09d0-418c-ac2a-775c73b61636}</Project>
+      <Name>Shared.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

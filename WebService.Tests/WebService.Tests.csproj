@@ -102,9 +102,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebService\WebService.csproj">
+    <ProjectReference Include="..\WebService\Web.API.csproj">
       <Project>{0275DC58-54F0-4429-8221-934E20A2842E}</Project>
-      <Name>WebService</Name>
+      <Name>Web.API</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
