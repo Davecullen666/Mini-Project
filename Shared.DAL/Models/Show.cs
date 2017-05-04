@@ -22,7 +22,8 @@ namespace ead_Mini_project_3.Models
     public DateTime Time { get; set; }
 
     [Required]
-    public double Price { get; set; }
+    [DataType(DataType.Currency)]
+    public decimal Price { get; set; }
 
     [Required]
     [Display(Name = "Main Act ")]
